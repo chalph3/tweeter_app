@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4', # new
+    'bootstrap_datepicker_plus', # new
     'users',
     'tweets', # new
 ]
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'tweeter_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR, 'templates')), ], # new
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,6 +74,10 @@ TEMPLATES = [
     },
 ]
 
+BOOTSTRAP4 = { 'include_jquery': True }
+
+LOGIN_REDIRECT_URL = 'home' # new
+LOGOUT_REDIRECT_URL = 'home' # new
 WSGI_APPLICATION = 'tweeter_app.wsgi.application'
 
 
